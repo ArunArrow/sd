@@ -1,5 +1,4 @@
 package com.example.sd;
-import in.wptraffcianalyzer.filereadwritedemo.R;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -53,7 +52,7 @@ public class MainActivity extends Activity {
         };
     }
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
@@ -70,5 +69,5 @@ public class MainActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 }
