@@ -1,15 +1,17 @@
 package com.example.sd;
 
+
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -21,7 +23,9 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 	EditText etmsg;
 	EditText etloc;
-    @SuppressLint("SdCardPath") @Override
+	Button btn_read;
+	Button btn_save;
+   
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -43,7 +47,9 @@ public class MainActivity extends Activity {
 					SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
 					editor.putString("fpath", file.getPath());
 					editor.commit();
+					
 					Toast.makeText(getBaseContext(),"Message saved" , Toast.LENGTH_SHORT).show();
+					
 				}catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -78,7 +84,9 @@ public class MainActivity extends Activity {
 		Button btnRead = (Button) findViewById(R.id.btn_read);
 		 btnRead.setOnClickListener(readClickListener);
     }
-
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
    /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -97,4 +105,5 @@ public class MainActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }*/
+}
 }
