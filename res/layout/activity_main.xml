@@ -16,15 +16,6 @@
         android:layout_centerVertical="true"
         android:text="Read" />
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/et_content"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="70dp"
-        android:text="Write" />
-
     <EditText
         android:id="@+id/et_msg"
         android:layout_width="fill_parent"
@@ -45,5 +36,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="text"  />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="59dp"
+        android:layout_toRightOf="@+id/button2"
+        android:text="Write" />
 
 </RelativeLayout>
