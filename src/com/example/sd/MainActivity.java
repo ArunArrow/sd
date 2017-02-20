@@ -50,6 +50,33 @@ public class MainActivity extends Activity {
 			}
         	
         };
+        OnClickListener readClickListener = new OnClickListener() {			
+			@Override
+			public void onClick(View v) {
+				File file = new File(etloc.getText().toString());
+								
+				String strLine="";
+				StringBuilder text = new StringBuilder();
+				try {
+					FileReader fReader = new FileReader(file);
+					BufferedReader bReader = new BufferedReader(fReader);
+					
+					/** Reading the contents of the file , line by line */
+					while( (strLine=bReader.readLine()) != null  ){
+						text.append(strLine+"\n");						
+					}
+					
+					Toast.makeText(getBaseContext(), "Successfully loaded", Toast.LENGTH_SHORT).show();
+					
+				} catch (IOException e) {
+					e.printStackTrace();
+				}etmsg.setText(text);
+			}
+		};
+		Button btnSave = (Button) findViewById(R.id.btn_save);
+		btnSave.setOnClickListener(saveClickListener);
+		Button btnRead = (Button) findViewById(R.id.btn_read);
+		 btnRead.setOnClickListener(readClickListener);
     }
 
    /* @Override
