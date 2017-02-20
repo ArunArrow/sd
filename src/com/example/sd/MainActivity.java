@@ -1,4 +1,6 @@
 package com.example.sd;
+import in.wptraffcianalyzer.filereadwritedemo.R;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -18,21 +20,37 @@ import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
-	EditText etContent;
+	EditText etmsg;
+	EditText etloc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        etContent = (EditText) findViewById(R.id.et_content);
+        String path = getPreferences(MODE_PRIVATE).getString("fpath", "/sdcard/My_file1");
+        etloc = (EditText) findViewById(R.id.et_loc);
+        etloc.setText(path);
+        etmsg = (EditText) findViewById(R.id.et_msg);
         OnClickListener saveClickListener = new OnClickListener(){
 
 			@Override
-			public void onClick(View arg0) {
+			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				File file = new File()
+				File file = new File(etloc.getText().toString());
+				FileWriter writer=null;
+				try{
+					writer = new FileWriter(file);
+					writer.write(etmsg.getText().toString());
+					writer.close();
+					SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
+					editor.putString("fpath", file.getPath());
+					editor.commit();
+					Toast.makeText(getBaseContext(),"Message saved" , Toast.LENGTH_SHORT).show();
+				}catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
         	
-        }
+        };
     }
 
     @Override

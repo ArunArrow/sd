@@ -8,34 +8,42 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.sd.MainActivity" >
 
-    <EditText
-        android:id="@+id/et_content"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:maxLines="4"
-        android:minLines="4" />
-
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/et_content"
-        android:layout_marginRight="36dp"
-        android:layout_marginTop="30dp"
+        android:layout_alignLeft="@+id/et_content"
+        android:layout_centerVertical="true"
         android:text="Read" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button2"
-        android:layout_alignBottom="@+id/button2"
-        android:layout_marginLeft="30dp"
-        android:layout_toRightOf="@+id/button2"
+        android:layout_alignRight="@+id/et_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="70dp"
         android:text="Write" />
+
+    <EditText
+        android:id="@+id/et_msg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:maxLines="4"
+        android:minLines="4" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+         android:id="@+id/et_loc"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"  />
 
 </RelativeLayout>
